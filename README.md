@@ -4,6 +4,7 @@
 - Clone code
 - Go to directory in terminal
 - $ yarn install
-- Open index.html
+- $ yarn start
+- Browser should automatically open at correct page
 
 
