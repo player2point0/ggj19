@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 638971600}
   - component: {fileID: 638971599}
   m_Layer: 0
-  m_Name: Door
+  m_Name: bathroomDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
