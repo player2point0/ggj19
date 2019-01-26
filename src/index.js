@@ -1,23 +1,14 @@
-import * as p5 from '@code-dot-org/p5'
-import '@code-dot-org/p5.play/lib/p5.play.js'
+import 'phaser';
 
-let s = (sk) => {    
-    sk.setup = () => {
-        sk.createCanvas(window.innerWidth,window.innerHeight);
-        sk.background(40);
-        sk.stroke(200);
-        sk.strokeWeight(3);
-        sk.createCanvas(800,400);
-        sk.createSprite(400, 200, 50, 50);
-    }
-    sk.draw = () => {
-        sk.background(255,255,255);  
-        sk.drawSprites();
-    }
-}
+import {SimpleScene} from './scenes/simple'
 
-const P5 = new p5(s);
+var config = {
+    type: Phaser.AUTO,
+    parent: 'oh-dear',
+    width: 800,
+    height: 600,
+    backgroundColor: '#007236',
+    scene: SimpleScene
+};
 
-if (module.hot) {
-  module.hot.accept()
-}
+var game = window.Game = new Phaser.Game(config);

@@ -8,16 +8,25 @@ module.exports = {
   mode: 'development',
   entry: './src/index.js',
   output: {
-    filename: 'main.js',
-    path: path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'project.bundle.js'
   },
   devtool: 'inline-source-map',
   devServer: {
     contentBase: './dist',
-    hot: true
+    hot: true,
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
+      "Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization"
+    },
   },
   module: {
     rules: [
+      {
+        test: [ /\.vert$/, /\.frag$/ ],
+        use: 'raw-loader'
+      },
       {
         test: /\.(png|jpg|gif)$/i,
         use: [
@@ -30,7 +39,11 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin(['dist']),
-    new HtmlWebpackPlugin(),
-    new webpack.HotModuleReplacementPlugin()
+    new HtmlWebpackPlugin(), // Generates default index.html
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.DefinePlugin({
+      'CANVAS_RENDERER': JSON.stringify(true),
+      'WEBGL_RENDERER': JSON.stringify(true)
+  })
   ]
 }
