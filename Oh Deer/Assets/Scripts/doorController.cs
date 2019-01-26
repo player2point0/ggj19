@@ -24,5 +24,4 @@ public class doorController : MonoBehaviour
         //hide current room
         currentRoom.gameObject.SetActive(false);
     }
-
 }
