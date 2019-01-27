@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class playerController : MonoBehaviour
@@ -12,10 +13,13 @@ public class playerController : MonoBehaviour
     public float stumbleChance;
     public float noiseIncrease;
     public Slider noiseSlider;
-    public SpriteRenderer spriteRenderer;
+    public Image noiseAlert;
+    public float noiseAlertDuration;
+    public Image gameOverImage;
 
     private Animator animator;
     private Rigidbody2D rb;
+    private SpriteRenderer spriteRenderer;
     private float noiseLevel;
 
     void Start()
@@ -34,9 +38,23 @@ public class playerController : MonoBehaviour
 
         noiseSlider.value = noiseLevel;
 
-        if (noiseLevel > 1) gameOver();
+        showNoiseAlert();
+
+        Invoke("hideNoiseAlert", noiseAlertDuration);
+
+        if (noiseLevel > 1) StartCoroutine("gameOver");
     }
 
+    void showNoiseAlert()
+    {
+        noiseAlert.gameObject.SetActive(true);
+    }
+
+    void hideNoiseAlert()
+    {
+        noiseAlert.gameObject.SetActive(false);
+    }
+    
     void FixedUpdate()
     {
         float y = Input.GetAxis("Vertical");
@@ -67,7 +85,6 @@ public class playerController : MonoBehaviour
         float x = rb.velocity.x;
         float y = rb.velocity.y;
         float angle = Mathf.Atan(x / y);
-        
 
         if (Random.value >= 0.5)
         {
@@ -84,12 +101,32 @@ public class playerController : MonoBehaviour
 
         Vector2 move = new Vector2(x, y);
 
+        if (float.IsNaN(x) || float.IsNaN(y)) return;
+
         rb.AddForce(move);
     }
 
-    void gameOver()
+    IEnumerator gameOver()
     {
-        Debug.Log("game over");
-    }
+        gameOverImage.gameObject.SetActive(true);
+        
+        while(true)
+        {
+            if(Input.GetKeyDown(KeyCode.Space))
+            {
+                //load main game 
+                SceneManager.LoadScene("main");
+            }
 
+            else if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                //load main menu
+                SceneManager.LoadScene("MainMenu");
+            }
+
+            yield return null;
+        }
+
+    }
+    
 }
