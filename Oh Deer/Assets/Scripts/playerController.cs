@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class playerController : MonoBehaviour
@@ -9,12 +10,27 @@ public class playerController : MonoBehaviour
     public float stumbleAngleMax;
     public float stumbleAngleMin;
     public float stumbleChance;
+    public float noiseIncrease;
+    public Slider noiseSlider;
+    public SpriteRenderer spriteRenderer;
 
     private Rigidbody2D rb;
+    private float noiseLevel;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        noiseLevel = 0;
+        noiseSlider.value = noiseLevel;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        noiseLevel += noiseIncrease;
+
+        noiseSlider.value = noiseLevel;
+
+        if (noiseLevel > 1) gameOver();
     }
 
     void FixedUpdate()
@@ -24,6 +40,8 @@ public class playerController : MonoBehaviour
 
         if(x !=0 || y != 0)
         {
+            //if()
+
             if(Random.value > (1 - stumbleChance)) Stumble();
 
             Vector2 move = new Vector2(x, y);
@@ -57,6 +75,11 @@ public class playerController : MonoBehaviour
         Vector2 move = new Vector2(x, y);
 
         rb.AddForce(move);
+    }
+
+    void gameOver()
+    {
+        Debug.Log("game over");
     }
 
 }
