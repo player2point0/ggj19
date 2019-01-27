@@ -12,7 +12,6 @@ public class playerController : MonoBehaviour
     public float stumbleChance;
     public float noiseIncrease;
     public Slider noiseSlider;
-    public SpriteRenderer spriteRenderer;
 
     private Rigidbody2D rb;
     private float noiseLevel;
@@ -40,14 +39,11 @@ public class playerController : MonoBehaviour
 
         if(x !=0 || y != 0)
         {
-            //if()
-
             if(Random.value > (1 - stumbleChance)) Stumble();
 
             Vector2 move = new Vector2(x, y);
 
             rb.AddForce(move * speed);
-
         }
         
     }
