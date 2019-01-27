@@ -225,6 +225,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   food:
   - {fileID: 6618870048694403072, guid: f331612879320fb4a82a1c1973abf44e, type: 3}
+  - {fileID: 8785551215636455833, guid: 822f7bf3ff4a8074b9fa0b431dee2d09, type: 3}
+  - {fileID: 8785551215636455833, guid: e7ef5dfa567e03e4ca869646a0285f2d, type: 3}
+  - {fileID: 8785551215636455833, guid: deabda739908f6140a456e125f8dc6c2, type: 3}
+  - {fileID: 8785551215636455833, guid: 757a8f2de1762bc4c9c1dde6ef598309, type: 3}
+  - {fileID: 8785551215636455833, guid: 0419c2dfae35f4043b960104d2d4e3a7, type: 3}
+  - {fileID: 8785551215636455833, guid: 7a19b040b1e939b4d8a81f6bdd9837d4, type: 3}
+  - {fileID: 8785551215636455833, guid: 86301b700d8a01a45bdc83a2d46e540d, type: 3}
   spawnRange: 5
   spawnDelay: 0.3
 --- !u!4 &1088626687
@@ -286,9 +293,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.3, y: -1.71}
   serializedVersion: 2
-  m_Radius: 0.08
+  m_Radius: 0.5
 --- !u!212 &1595296678
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -325,8 +332,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 21300000, guid: 46c281c3e15d30a45921bec5ff050519, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -346,7 +353,7 @@ Transform:
   m_GameObject: {fileID: 1595296675}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1

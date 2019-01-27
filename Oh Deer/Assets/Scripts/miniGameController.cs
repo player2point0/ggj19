@@ -13,12 +13,5 @@ public class miniGameController : MonoBehaviour
         SceneManager.LoadScene(miniGameName);
 
         FindObjectOfType<sceneController>().openScene(miniGameName, playerSpawn);
-
-        //Invoke("closeScene", 1);
-    }
-
-    private void closeScene()
-    {
-        SceneManager.UnloadSceneAsync(miniGameName);
     }
 }

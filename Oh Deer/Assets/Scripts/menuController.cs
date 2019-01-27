@@ -7,13 +7,11 @@ public class menuController : MonoBehaviour
 {
     public void openMainGame()
     {
-        SceneManager.LoadScene("main");
+        SceneManager.LoadScene("opening");
     }
 
     public void exitGame()
     {
         Application.Quit();
     }
-
-
 }

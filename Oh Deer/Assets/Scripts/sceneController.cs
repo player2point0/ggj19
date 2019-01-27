@@ -63,7 +63,6 @@ public class sceneController : MonoBehaviour
         }
     }
 
-
     public IEnumerator placePlayerSpawn()
     {
         int crashCounter = 0;

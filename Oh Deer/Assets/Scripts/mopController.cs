@@ -12,6 +12,11 @@ public class mopController : MonoBehaviour
     {
         Destroy(collision.gameObject, 0.25f);
         score++;
+
+        if(score > 20)
+        {
+            FindObjectOfType<sceneController>().openScene("main", null);
+        }
     }
 
     void FixedUpdate()

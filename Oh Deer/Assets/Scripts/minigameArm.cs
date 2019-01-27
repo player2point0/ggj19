@@ -65,6 +65,7 @@ public class minigameArm : MonoBehaviour
                         sr.sprite = brokenSprite;
                     }
                     isGameOver = true;
+                    FindObjectOfType<sceneController>().openScene("main", null);
                 }
             }
         }

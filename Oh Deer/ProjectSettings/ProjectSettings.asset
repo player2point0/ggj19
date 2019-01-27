@@ -560,7 +560,7 @@ PlayerSettings:
       daydreamIconForeground: {fileID: 0}
       daydreamIconBackground: {fileID: 0}
   cloudServicesEnabled:
-    Collab: 1
+    Collab: 0
     UNet: 1
   luminIcon:
     m_Name: 
@@ -581,10 +581,10 @@ PlayerSettings:
   facebookXfbml: 0
   facebookFrictionlessRequests: 1
   apiCompatibilityLevel: 2
-  cloudProjectId: 50c513e3-2508-49bc-80c3-8afda8c4e33b
+  cloudProjectId: 14c9cd0f-f2f8-40f4-8ace-0b35ec8b696f
   framebufferDepthMemorylessMode: 0
   projectName: Oh Deer
-  organizationId: mwcampbell0
+  organizationId: player2point0
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0
