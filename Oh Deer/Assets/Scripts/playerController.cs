@@ -12,7 +12,9 @@ public class playerController : MonoBehaviour
     public float stumbleChance;
     public float noiseIncrease;
     public Slider noiseSlider;
+    public SpriteRenderer spriteRenderer;
 
+    private Animator animator;
     private Rigidbody2D rb;
     private float noiseLevel;
 
@@ -21,6 +23,9 @@ public class playerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         noiseLevel = 0;
         noiseSlider.value = noiseLevel;
+
+        animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -37,6 +42,8 @@ public class playerController : MonoBehaviour
         float y = Input.GetAxis("Vertical");
         float x = Input.GetAxis("Horizontal");
 
+        animator.SetBool("buttonPress", (x != 0 || y != 0));
+
         if(x !=0 || y != 0)
         {
             if(Random.value > (1 - stumbleChance)) Stumble();
@@ -44,6 +51,13 @@ public class playerController : MonoBehaviour
             Vector2 move = new Vector2(x, y);
 
             rb.AddForce(move * speed);
+
+            if (x > 0) {
+                spriteRenderer.flipX = true;
+            } else if(x < 0)
+            {
+                spriteRenderer.flipX = false;
+            }
         }
         
     }
